@@ -16,5 +16,14 @@ namespace TDD_DictionaryTests
             string result = StringReplacer.ReplaceString(input, dict);
             Assert.AreEqual("", result);
         }
+
+        [TestMethod]
+        public void ReplaceString_WithOneReplacement_ReturnsReplacedString()
+        {
+            var dict = new Dictionary<string, string> { { "temp", "temporaire" } };
+            string input = "$temp$";
+            string result = StringReplacer.ReplaceString(input, dict);
+            Assert.AreEqual("temporaire", result);
+        }
     }
 }
