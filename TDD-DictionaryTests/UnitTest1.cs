@@ -38,5 +38,18 @@ namespace TDD_DictionaryTests
             string result = StringReplacer.ReplaceString(input, dict);
             Assert.AreEqual("temporary here comes the name John Doe", result);
         }
+
+        [TestMethod]
+        public void ReplaceString_WithDollarSignsInKeys_HandlesReplacementCorrectly()
+        {
+            var dict = new Dictionary<string, string>
+            {
+                { "$temp", "temporary" },
+                { "$name", "John Doe" }
+             };
+            string input = "$$temp$ here comes the name $$name$";
+            string result = StringReplacer.ReplaceString(input, dict);
+            Assert.AreEqual("temporary here comes the name John Doe", result);
+        }
     }
 }
