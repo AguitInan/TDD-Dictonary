@@ -1,11 +1,20 @@
+using Microsoft.VisualStudio.TestPlatform.TestHost;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using TDD_DictionaryCore;
+
 namespace TDD_DictionaryTests
 {
     [TestClass]
-    public class UnitTest1
+    public class StringReplacerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ReplaceString_WithEmptyStringAndEmptyDict_ReturnsEmptyString()
         {
+            var dict = new Dictionary<string, string>();
+            string input = "";
+            string result = StringReplacer.ReplaceString(input, dict);
+            Assert.AreEqual("", result);
         }
     }
 }
